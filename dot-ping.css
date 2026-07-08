@@ -1,0 +1,82 @@
+.eyebrow span,
+.equal-dot,
+.status-light,
+.about-status-dot {
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+  animation: dot-core-ping 2.2s ease-in-out infinite;
+}
+
+.timeline span {
+  overflow: visible;
+  animation: dot-core-ping 2.2s ease-in-out infinite;
+}
+
+.eyebrow span::after,
+.equal-dot::after,
+.status-light::after,
+.about-status-dot::after,
+.timeline span::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 1px solid rgba(0, 255, 178, .58);
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(.65);
+  animation: dot-ring-ping 1.85s cubic-bezier(0, 0, .2, 1) infinite;
+}
+
+.equal-dot::after {
+  animation-delay: .2s;
+}
+
+.about-status-dot::after,
+.status-light::after {
+  animation-delay: .35s;
+}
+
+.timeline div:nth-child(2) span::after {
+  animation-delay: .28s;
+}
+
+.timeline div:nth-child(3) span::after {
+  animation-delay: .56s;
+}
+
+@keyframes dot-core-ping {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-1px) scale(1.08);
+  }
+}
+
+@keyframes dot-ring-ping {
+  0% {
+    opacity: .75;
+    transform: scale(.65);
+  }
+  72%, 100% {
+    opacity: 0;
+    transform: scale(2.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow span,
+  .equal-dot,
+  .status-light,
+  .about-status-dot,
+  .timeline span,
+  .eyebrow span::after,
+  .equal-dot::after,
+  .status-light::after,
+  .about-status-dot::after,
+  .timeline span::after {
+    animation: none !important;
+  }
+}

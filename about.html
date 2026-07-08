@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dot-ping.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js" defer></script>
 </head>
 <body>
@@ -38,25 +39,41 @@
   </header>
 
   <main>
-  <section class="page-hero reveal">
+  <section class="page-hero about-hero reveal">
     <p class="eyebrow"><span></span>About</p>
-    <h1>A quick overview.</h1>
-    <p>A simple page about what I like building, testing and improving.</p>
+    <h1>About Nic.</h1>
+    <p>I build small web things, test ideas fast and keep improving this space as I learn. This site is where projects, experiments, music and useful ideas come together.</p>
   </section>
 
-  <section class="section about-layout reveal delay-1">
-    <div class="glass-block about-main">
-      <h2>What I like working on</h2>
-      <p>I enjoy building small useful things, testing ideas, improving workflows and creating clean interfaces. This website is my place for projects, experiments and notes I want to keep organized.</p>
+  <section class="section about-dashboard reveal delay-1">
+    <article class="glass-block about-main about-profile">
+      <div class="about-kicker"><span class="about-status-dot" aria-hidden="true"></span>Current focus</div>
+      <h2>Making things feel cleaner, faster and more useful.</h2>
+      <p>I like turning loose ideas into working pages, tools and little systems. The goal is usually simple: make it useful, keep it clean and improve it until it feels right.</p>
       <div class="tags big-tags">
-        <span>Systems</span><span>Automation</span><span>Web</span><span>Tools</span><span>Design</span>
+        <span>Web</span><span>Design</span><span>Flask</span><span>Automation</span><span>Small tools</span>
       </div>
-    </div>
+    </article>
 
-    <div class="timeline modern">
-      <div><span></span><h3>Build</h3><p>Start with a simple version that works.</p></div>
-      <div><span></span><h3>Improve</h3><p>Make it cleaner, faster and easier to use.</p></div>
-      <div><span></span><h3>Share</h3><p>Publish only what belongs on a public website.</p></div>
+    <aside class="about-stack">
+      <article class="glass-block about-panel">
+        <div class="about-kicker"><span class="about-status-dot" aria-hidden="true"></span>Now</div>
+        <h3>Building this hub</h3>
+        <p>Music, background videos, project cards, contact testing and a layout that can keep growing.</p>
+      </article>
+
+      <article class="glass-block about-panel">
+        <div class="about-kicker"><span class="about-status-dot" aria-hidden="true"></span>Tools</div>
+        <div class="tags">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>GitHub Pages</span>
+        </div>
+      </article>
+    </aside>
+
+    <div class="timeline modern about-timeline">
+      <div><span></span><h3>Try</h3><p>Start with the smallest version that works.</p></div>
+      <div><span></span><h3>Shape</h3><p>Make the interface clearer, smoother and easier to use.</p></div>
+      <div><span></span><h3>Keep</h3><p>Save the ideas and projects that are worth coming back to.</p></div>
     </div>
   </section>
 

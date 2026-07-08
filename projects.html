@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dot-ping.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js" defer></script>
 </head>
 <body>
@@ -41,13 +42,9 @@
   <section class="page-hero reveal">
     <p class="eyebrow"><span></span>Projects</p>
     <h1>Projects I can change anytime.</h1>
-    <p>These cards are loaded from <code>content/projects.json</code>. You can edit titles, descriptions, tags and status there without touching the HTML.</p>
   </section>
 
   <section class="section reveal delay-1">
-    <div class="editable-note">
-      <strong>Edit me:</strong> open <code>content/projects.json</code> and change the entries. Edit the title, description and tags whenever you want to change the page.
-    </div>
     <div class="project-list" id="projects-list" data-source="content/projects.json"></div>
   </section>
 
