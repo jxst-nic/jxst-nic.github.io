@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home — Nicbytes</title>
-  <meta name="description" content="Nicbytes — personal tech homepage." />
+  <title>Ideas — Nicbytes</title>
+  <meta name="description" content="Ideas by Nicbytes." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;800;900&display=swap" rel="stylesheet">
@@ -29,64 +29,26 @@
     </a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     <nav id="site-nav" aria-label="Main navigation">
-      <a class="active" href="index.html">Home</a>
+      <a class="" href="index.html">Home</a>
       <a class="" href="projects.html">Projects</a>
-      <a class="" href="ideas.html">Ideas</a>
+      <a class="active" href="ideas.html">Ideas</a>
       <a class="" href="about.html">About</a>
       <a class="" href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-  <section class="hero hero-home">
-    <div class="hero-copy reveal">
-      <p class="eyebrow"><span></span>Personal website • tech playground</p>
-      <h1>Hi, I’m Nic.<br><span>I build things that make sense.</span></h1>
-      <p class="hero-text">A clean space for my projects, ideas, experiments and things I enjoy creating. Simple to read, easy to expand, and built to feel good on every screen.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="projects.html">View projects</a>
-        <a class="button ghost" href="ideas.html">See ideas</a>
-      </div>
-    </div>
-
-    <div class="hero-panel reveal delay-1">
-      <div class="status-card glass-block">
-        <div class="status-top">
-          <span class="status-light"></span>
-          <span>nicbytes.is-a.dev</span>
-        </div>
-        <h2>Personal build space</h2>
-        <p>Website, music, background video, project pages and a working contact form — all shaped into one smooth personal hub.</p>
-      </div>
-      <div class="quick-grid">
-        <a href="projects.html"><strong>Projects</strong><span>Things I build</span></a>
-        <a href="ideas.html"><strong>Ideas</strong><span>Stuff for later</span></a>
-        <a href="about.html"><strong>About</strong><span>Quick overview</span></a>
-        <a href="contact.html"><strong>Contact</strong><span>Send a message</span></a>
-      </div>
-    </div>
+  <section class="page-hero reveal">
+    <p class="eyebrow"><span></span>Ideas</p>
+    <h1>Ideas for later builds.</h1>
+    <p>This page is also editable through a JSON file. Change <code>content/ideas.json</code> and add whatever you want to build next.</p>
   </section>
 
-  <section class="section split-section reveal">
-    <div class="section-heading">
-      <p class="eyebrow"><span></span>Overview</p>
-      <h2>A smoother overview with more room, cleaner sections and better readability.</h2>
+  <section class="section reveal delay-1">
+    <div class="editable-note">
+      <strong>Edit me:</strong> add, remove or rename ideas in <code>content/ideas.json</code>.
     </div>
-    <div class="cards three feature-cards">
-      <article class="card"><h3>Clean pages</h3><p>Home, Projects, Ideas, About and Contact are separated so the website is easier to read and extend later.</p></article>
-      <article class="card"><h3>Live testing</h3><p>The Flask test server can scan your music folder, save contact messages and show everything in the local admin page.</p></article>
-      <article class="card"><h3>Responsive design</h3><p>The layout scales for desktop, tablet and phone while keeping the main content easy to read.</p></article>
-    </div>
-  </section>
-
-  <section class="section showcase reveal">
-    <div class="glass-block showcase-card">
-      <div>
-        <p class="eyebrow"><span></span>Built for upgrades</p>
-        <h2>Start simple, then add whatever fits.</h2>
-      </div>
-      <p>The site is made to grow: add projects through JSON, drop MP3s into the music folder, change ideas whenever you want and keep testing everything locally with Flask before uploading it.</p>
-    </div>
+    <div class="cards idea-grid" id="ideas-list" data-source="content/ideas.json"></div>
   </section>
 
   </main>

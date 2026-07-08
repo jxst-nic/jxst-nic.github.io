@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home — Nicbytes</title>
-  <meta name="description" content="Nicbytes — personal tech homepage." />
+  <title>Contact — Nicbytes</title>
+  <meta name="description" content="Contact Nicbytes without a public email." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;750;800;900&display=swap" rel="stylesheet">
@@ -29,64 +29,45 @@
     </a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     <nav id="site-nav" aria-label="Main navigation">
-      <a class="active" href="index.html">Home</a>
+      <a class="" href="index.html">Home</a>
       <a class="" href="projects.html">Projects</a>
       <a class="" href="ideas.html">Ideas</a>
       <a class="" href="about.html">About</a>
-      <a class="" href="contact.html">Contact</a>
+      <a class="active" href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-  <section class="hero hero-home">
-    <div class="hero-copy reveal">
-      <p class="eyebrow"><span></span>Personal website • tech playground</p>
-      <h1>Hi, I’m Nic.<br><span>I build things that make sense.</span></h1>
-      <p class="hero-text">A clean space for my projects, ideas, experiments and things I enjoy creating. Simple to read, easy to expand, and built to feel good on every screen.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="projects.html">View projects</a>
-        <a class="button ghost" href="ideas.html">See ideas</a>
-      </div>
-    </div>
-
-    <div class="hero-panel reveal delay-1">
-      <div class="status-card glass-block">
-        <div class="status-top">
-          <span class="status-light"></span>
-          <span>nicbytes.is-a.dev</span>
-        </div>
-        <h2>Personal build space</h2>
-        <p>Website, music, background video, project pages and a working contact form — all shaped into one smooth personal hub.</p>
-      </div>
-      <div class="quick-grid">
-        <a href="projects.html"><strong>Projects</strong><span>Things I build</span></a>
-        <a href="ideas.html"><strong>Ideas</strong><span>Stuff for later</span></a>
-        <a href="about.html"><strong>About</strong><span>Quick overview</span></a>
-        <a href="contact.html"><strong>Contact</strong><span>Send a message</span></a>
-      </div>
-    </div>
+  <section class="page-hero reveal">
+    <p class="eyebrow"><span></span>Contact</p>
+    <h1>Send me a message.</h1>
+    <p>No visitor email is required. Just a name, a message and optional files.</p>
   </section>
 
-  <section class="section split-section reveal">
-    <div class="section-heading">
-      <p class="eyebrow"><span></span>Overview</p>
-      <h2>A smoother overview with more room, cleaner sections and better readability.</h2>
-    </div>
-    <div class="cards three feature-cards">
-      <article class="card"><h3>Clean pages</h3><p>Home, Projects, Ideas, About and Contact are separated so the website is easier to read and extend later.</p></article>
-      <article class="card"><h3>Live testing</h3><p>The Flask test server can scan your music folder, save contact messages and show everything in the local admin page.</p></article>
-      <article class="card"><h3>Responsive design</h3><p>The layout scales for desktop, tablet and phone while keeping the main content easy to read.</p></article>
-    </div>
-  </section>
-
-  <section class="section showcase reveal">
-    <div class="glass-block showcase-card">
+  <section class="section contact-layout reveal delay-1">
+    <form class="contact-form glass-block" id="contact-form">
       <div>
-        <p class="eyebrow"><span></span>Built for upgrades</p>
-        <h2>Start simple, then add whatever fits.</h2>
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" placeholder="Your name" maxlength="80" required>
       </div>
-      <p>The site is made to grow: add projects through JSON, drop MP3s into the music folder, change ideas whenever you want and keep testing everything locally with Flask before uploading it.</p>
-    </div>
+      <div>
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="7" placeholder="Write your message..." maxlength="1800" required></textarea>
+      </div>
+      <div>
+        <label for="contact-files">Attachments</label>
+        <input id="contact-files" name="files" type="file" multiple>
+        <p class="form-hint">Files are optional. Keep them small for best results.</p>
+      </div>
+      <button class="button primary" type="submit">Send message</button>
+      <p class="contact-status" id="contact-status" role="status">Ready.</p>
+    </form>
+
+    <aside class="contact-info glass-block">
+      <h2>How this works</h2>
+      <p>The form is prepared for a free backend endpoint or Discord webhook, so your email does not have to be public. Add your endpoint in <code>contact-config.js</code>.</p>
+      <p>Without an endpoint it saves a local test copy in your browser, so you can still test the design.</p>
+    </aside>
   </section>
 
   </main>
@@ -126,6 +107,6 @@
   </aside>
 
   <script src="script.js" defer></script>
-  
+  <script src="contact-config.js"></script>
 </body>
 </html>
