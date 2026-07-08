@@ -140,6 +140,12 @@ function nextBackgroundVideoIndex(){
   if(!backgroundOrder.length||backgroundOrderPos>=backgroundOrder.length)buildBackgroundOrder();
   return backgroundOrder[backgroundOrderPos++]??0;
 }
+function resetBackgroundVideoToStart(){
+  if(!backgroundVideo)return;
+  const reset=()=>{try{backgroundVideo.currentTime=0}catch{}};
+  if(backgroundVideo.readyState>0)reset();
+  else backgroundVideo.addEventListener("loadedmetadata",reset,{once:true});
+}
 function playBackgroundVideo(index=nextBackgroundVideoIndex()){
   const item=backgroundVideos[index];
   if(!backgroundVideo||!item)return;
@@ -154,6 +160,7 @@ function playBackgroundVideo(index=nextBackgroundVideoIndex()){
   backgroundVideo.querySelectorAll("source").forEach(source=>source.remove());
   backgroundVideo.src=item.src;
   backgroundVideo.load();
+  resetBackgroundVideoToStart();
   backgroundVideo.play().then(()=>{
     backgroundErrorSkips=0;
     document.body.classList.add("has-background-video");
@@ -170,6 +177,7 @@ function restoreFallbackBackgroundVideo(){
   backgroundVideo.loop=true;
   backgroundVideo.src=fallbackBackgroundVideoSrc;
   backgroundVideo.load();
+  resetBackgroundVideoToStart();
   backgroundVideo.play().catch(()=>{});
 }
 function handleBackgroundVideoError(){
