@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Automation Tools",
+    "description": "Small scripts and helpers that make repetitive tasks faster and cleaner.",
+    "tags": [
+      "PowerShell",
+      "Python",
+      "Windows"
+    ]
+  },
+  {
+    "title": "Web Experiments",
+    "description": "Landing pages, UI ideas, music widgets and interactive browser components.",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  },
+  {
+    "title": "Systems Lab",
+    "description": "Public notes and experiments around systems, networking and useful IT workflows.",
+    "tags": [
+      "IT",
+      "Networking",
+      "Docs"
+    ]
+  },
+  {
+    "title": "Personal Dashboard",
+    "description": "A future dashboard for status, links, notes and small tools in one place.",
+    "tags": [
+      "Dashboard",
+      "API",
+      "Design"
+    ]
+  }
+]

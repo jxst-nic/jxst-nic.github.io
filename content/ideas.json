@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Now Playing Upgrade",
+    "description": "Cover art, progress bar and a cleaner mini-player for desktop and mobile.",
+    "tags": [
+      "Music",
+      "UI"
+    ]
+  },
+  {
+    "title": "Project Editor",
+    "description": "A small local editor that updates the JSON files without touching code.",
+    "tags": [
+      "Tool",
+      "JSON"
+    ]
+  },
+  {
+    "title": "Theme Switcher",
+    "description": "Switch between cyber, clean, minimal and glass themes with one button.",
+    "tags": [
+      "Design",
+      "CSS"
+    ]
+  },
+  {
+    "title": "Public Notes",
+    "description": "Short notes about useful tech things, tools and experiments.",
+    "tags": [
+      "Notes",
+      "IT"
+    ]
+  },
+  {
+    "title": "Status Card",
+    "description": "A tiny status area for current focus, updates or what is being built next.",
+    "tags": [
+      "Status",
+      "Widget"
+    ]
+  },
+  {
+    "title": "Better Contact Backend",
+    "description": "A free Cloudflare Worker endpoint so messages and files can be received safely.",
+    "tags": [
+      "Cloudflare",
+      "Contact"
+    ]
+  }
+]
