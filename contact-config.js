@@ -1,9 +1,7 @@
 // Contact configuration
-// Leave both values empty for local test mode.
-// Recommended free option: create a Cloudflare Worker and put its URL in endpoint.
-// Quick option: create a Discord webhook and put it in discordWebhook.
-// Warning: a Discord webhook placed directly here is visible in the browser source.
+// Paste your deployed Cloudflare Worker URL below.
+// Do not put the Discord webhook URL in this file. Set DISCORD_WEBHOOK_URL
+// as a Cloudflare Worker secret/environment variable instead.
 window.NIC_CONTACT = {
-  endpoint: "",
-  discordWebhook: ""
+  endpoint: "PASTE_CLOUDFLARE_WORKER_URL_HERE"
 };

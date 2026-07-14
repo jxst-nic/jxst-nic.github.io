@@ -568,14 +568,17 @@ function bindContactForm(){
   contactForm.addEventListener("submit",async(event)=>{
     event.preventDefault();
     await ensureContactConfig();
-    const name=document.getElementById("contact-name")?.value.trim();
-    const message=document.getElementById("contact-message")?.value.trim();
+    const name=String(document.getElementById("contact-name")?.value||"").trim();
+    const message=String(document.getElementById("contact-message")?.value||"").trim();
     const files=[...(document.getElementById("contact-files")?.files||[])];
     if(!name||!message){if(contactStatus)contactStatus.textContent="Please enter a name and a message.";return}
+    const formData=new FormData(contactForm);
+    formData.set("name",name);
+    formData.set("message",message);
     if(contactStatus)contactStatus.textContent="Sending...";
     try{
-      const ok=await sendContact({name,message,files});
-      if(ok){contactForm.reset();if(contactStatus)contactStatus.textContent=isLocalPreview()?"Message saved locally in Flask. Open /admin to view it.":"Message sent."}
+      const result=await sendContact({formData});
+      if(result.ok){contactForm.reset();if(contactStatus)contactStatus.textContent=result.mode==="local"?"Message saved locally in Flask. Open /admin to view it.":"Message sent."}
       else throw new Error("not configured");
     }catch{
       saveLocalContact({name,message,files});
@@ -583,7 +586,8 @@ function bindContactForm(){
     }
   });
 }
-async function sendContact({name,message,files}){const cfg=window.NIC_CONTACT||{};if(isLocalPreview()){const data=new FormData();data.append("name",name);data.append("message",message);files.forEach(file=>data.append("files",file,file.name));const r=await fetch("/api/contact",{method:"POST",body:data});return r.ok}if(cfg.endpoint){const data=new FormData();data.append("name",name);data.append("message",message);files.forEach(file=>data.append("files",file,file.name));const r=await fetch(cfg.endpoint,{method:"POST",body:data});return r.ok}if(cfg.discordWebhook){const data=new FormData();const content=`**New nicbytes message**\\n**Name:** ${name}\\n**Message:** ${message}`;data.append("payload_json",JSON.stringify({content}));files.slice(0,8).forEach(file=>data.append("files[]",file,file.name));const r=await fetch(cfg.discordWebhook,{method:"POST",body:data});return r.ok}return false}
+function getContactEndpoint(){const endpoint=String((window.NIC_CONTACT||{}).endpoint||"").trim();return endpoint&&endpoint!=="PASTE_CLOUDFLARE_WORKER_URL_HERE"?endpoint:""}
+async function sendContact({formData}){const endpoint=getContactEndpoint();if(endpoint){const r=await fetch(endpoint,{method:"POST",body:formData});return{ok:r.ok,mode:"worker"}}if(isLocalPreview()){const r=await fetch("/api/contact",{method:"POST",body:formData});return{ok:r.ok,mode:"local"}}return{ok:false,mode:"missing"}}
 function saveLocalContact({name,message,files}){const key="nicbytes-local-contact-tests";let items=[];try{items=JSON.parse(localStorage.getItem(key)||"[]")}catch{}items.push({name,message,files:files.map(f=>({name:f.name,size:f.size,type:f.type})),createdAt:new Date().toISOString()});localStorage.setItem(key,JSON.stringify(items,null,2))}
 
 function initPageFeatures(){
